@@ -1,18 +1,16 @@
-const initialState = {
-    name: '',
-    level: '',
-    casting_time: '',
-    range: '',
-    school: '',
-    duration: '',
-    desc: '',
-    higher_level: '',
-    dnd_class: ''
-  }
+import data from "../data";
 
-export const reducer = (state = initialState, action) => {
+const initialState = {
+    spells: data,
+    fetching: false,
+    error: ''
+}
+
+const reducer = (state = initialState, action) => {
     switch (action.type) {
         default:
             return state;
     }
 }
+
+export default reducer;
