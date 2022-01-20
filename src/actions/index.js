@@ -4,10 +4,10 @@ export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAIL = "FETCH_FAIL";
 
-export const getSpells = () => {
+export const getSpells = (searchTerm) => {
     return (dispatch => {
         dispatch(fetchStart())
-        axios.get('https://api.open5e.com/spells/')
+        axios.get(`https://api.open5e.com/spells/?search=${searchTerm}`)
         .then(resp => {
             dispatch(fetchSuccess(resp.data.results))
         })

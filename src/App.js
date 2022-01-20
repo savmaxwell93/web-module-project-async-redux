@@ -1,27 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
-import axios from 'axios';
 import './App.css';
 
 import data from './data';
-import { fetchStart, fetchSuccess, fetchFail } from './actions';
+import { getSpells } from './actions';
 
 import SearchBar from './components/searchBar';
 import SearchResults from './components/searchResults';
 
 function App(props) {
-  const { fetching, error, fetchStart, fetchSuccess } = props;
+  const { fetching, error, getSpells } = props;
 
   useEffect(() => {
-    fetchStart();
-    axios.get('https://api.open5e.com/spells/')
-      .then(resp => {
-        fetchSuccess(resp.data.results)
-      })
-      .catch(err => {
-        fetchFail(err)
-      })
+    getSpells('');
   }, [])
 
   return (
@@ -47,4 +39,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchStart, fetchSuccess, fetchFail })(App);
+export default connect(mapStateToProps, { getSpells })(App);
