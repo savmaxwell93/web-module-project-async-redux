@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --open",
+    "build": "react-scripts build",
     "test": "cross-env NODE_ENV=testing jest --verbose --forceExit"
   },
   "devDependencies": {
